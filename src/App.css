@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+.playfair-display-heroFont {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+  }
+
+  .eb-garamond-arFont {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .dm-mono-light {
+    font-family: "DM Mono", monospace;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  .londrina-shadow-regular {
+    font-family: "Londrina Shadow", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+@theme {
+    --color-hero: #d7e5d8;
+    --color-heroText: #38331d;
+    --font-hero: "Playfair Display", "sans-serif";
+    --font-ahero: "EB Garamond", serif;
+    --font-zero: "DM Mono", monospace;
+    --color-bermuda: #78dcca;
+    --color-mywhite:#ededed;
+    --text-sup: 16vw; 
+    --color-storybg: #212121;
+
+/*     --slide-height:66vw;
+    --slide-width:66vw;
+    --gap:3vw; */
+    --slide-count: 6;
+    
+  }
+
+  :root {
+    /* Responsive Variables - adjust as needed */
+    --slide-width-mobile: 66vw;
+    --slide-height-mobile: 66vw; /* Keep aspect ratio if desired */
+    --gap-mobile: 3vw;
+
+    --slide-width-desktop: 30vh; /* Using vh for desktop width */
+    --slide-height-desktop: 30vh; /* Make it square on desktop */
+    --gap-desktop: 1.5vw; /* Adjust gap for desktop */
+
+    /* Default values (e.g., for smaller mobile screens) */
+    --slide-height: var(--slide-height-mobile);
+    --slide-width: var(--slide-width-mobile);
+    --gap: var(--gap-mobile);
+
+    --time: 20s; /* Base animation duration for one full set */
+    --border-color: rgba(180, 180, 180, 0.6);
+}
+
+/* Media query for desktop sizes */
+@media (min-width: 769px) { /* Adjust breakpoint as necessary */
+    :root {
+        --slide-height: var(--slide-height-desktop);
+        --slide-width: var(--slide-width-desktop);
+        --gap: var(--gap-desktop);
+    }
+}
+
+.slider {
+    position: relative;
+    /* Use a fixed pixel width or max-width for the container */
+    width: 1100px; /* Example fixed width, adjust as needed */
+    max-width: 95%; /* Make it responsive on smaller screens */
+    margin: 0 auto; /* Center the slider */
+    height: var(--slide-height); /* Container height matches slide height */
+    /* overflow: hidden; */ /* Crucial for clipping the infinite loop */
+    
+    touch-action: pan-y; /* Allows vertical scrolling on touch devices while dragging horizontally */
+    -webkit-touch-callout: none; /* Disable callout on long press on iOS */
+}
+
+.slider-track {
+    position: absolute;
+    top: 0;
+    left: 0; /* Important: initial x is handled by Framer Motion, but default to 0 */
+    display: flex;
+    /* transition: transform 0.3s ease-out; /* Framer Motion will handle this */
+    will-change: transform; /* Hint for browser optimization */
+}
+
+.slide {
+    flex-shrink: 0; /* Prevent slides from shrinking */
+    width: var(--slide-width);
+    max-width: 27vh;
+    max-height: 27vh;
+    height: var(--slide-height);
+    border: 2px solid var(--border-color);
+    border-radius: 8px; /* Example border radius */
+    margin: 0 var(--gap); /* Margin on both sides of each slide */
+    box-sizing: border-box; /* Include padding and border in the width/height */
+    position: relative; /* For the debug overlay */
+    overflow: hidden; /* Ensure image doesn't spill out of slide */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the slide area, cropping if necessary */
+    border-radius: inherit; /* Inherit border-radius from parent slide */
+    display: block; /* Remove extra space below image */
+    user-select: none; /* Prevent text selection */
+    pointer-events: none; /* Prevent image drag conflict with carousel drag */
+}
+
+/* No .scrollLeft or .scrollRight keyframe animations here. */
+/* Framer Motion will handle the animation of the 'x' property directly. */
+
+  .sr-only {
+    color: white;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
