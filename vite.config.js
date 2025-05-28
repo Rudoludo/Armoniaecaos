@@ -4,11 +4,16 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),tailwindcss()],server: {
+  plugins: [react(),tailwindcss()],
+  /* server: {
     host: true, // allows access from LAN
-  },build: {
+  }, */
+  build: {
     sourcemap: false, // Ensure this is set to false for production
     // Or remove it entirely, as 'false' is often the default for production
   },
-  base: './',
+  base: '/Armoniaecaos/', // Set this to your repository name!
+  server: {
+    port: 3000
+  },
 })
