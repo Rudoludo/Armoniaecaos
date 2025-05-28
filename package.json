@@ -2,7 +2,7 @@
   "name": "concrete",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://rudoludo.github.io/armoniaecaos",
+  "homepage": "https://rudoludo.github.io/Armoniaecaos/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",

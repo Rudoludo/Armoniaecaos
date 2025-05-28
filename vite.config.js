@@ -13,7 +13,5 @@ export default defineConfig({
     // Or remove it entirely, as 'false' is often the default for production
   },
   base: '/Armoniaecaos/', // Set this to your repository name!
-  server: {
-    port: 3000
-  },
+  
 })
