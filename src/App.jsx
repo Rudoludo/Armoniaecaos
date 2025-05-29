@@ -14,15 +14,6 @@ function App() {
     
 
     <ScrollM/>
-      
-    
-   
-    
-    
-
-    
-    
-  
     </>
   )
 }
