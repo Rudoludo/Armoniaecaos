@@ -8,10 +8,10 @@ export default defineConfig({
   /* server: {
     host: true, // allows access from LAN
   }, */
-  build: {
+  /* build: {
     sourcemap: false, // Ensure this is set to false for production
     // Or remove it entirely, as 'false' is often the default for production
-  },
-  base: '/Armoniaecaos/', // Set this to your repository name!
+  }, */
+  base: '/', // Set this to your repository name!
   
 })
